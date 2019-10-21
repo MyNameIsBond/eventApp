@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Live Events'),
     );
   }
 }
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Home',
       style: optionStyle,
     ),
     Text(
@@ -39,7 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Profile',
+      style: optionStyle,
+    ),
+    Text(
+      'School',
+      style: optionStyle,
+    ),
+    Text(
+      'School',
       style: optionStyle,
     ),
   ];
@@ -70,12 +78,21 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text('Business'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('School'),
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pin_drop),
+            title: Text('Live Events'),
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.purple[400],
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );
