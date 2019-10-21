@@ -29,13 +29,14 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
+    new HomeParent(optionStyle: optionStyle),
     Text(
-      'Home',
+      'Business',
       style: optionStyle,
     ),
     Text(
-      'Business',
+      'Settings',
       style: optionStyle,
     ),
     Text(
@@ -43,11 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       style: optionStyle,
     ),
     Text(
-      'School',
-      style: optionStyle,
-    ),
-    Text(
-      'School',
+      'Live Events',
       style: optionStyle,
     ),
   ];
@@ -65,28 +62,28 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: Container(child: _widgetOptions.elementAt(_selectedIndex)),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             title: Text('Business'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('Settings'),
+            icon: Icon(Icons.home),
+            title: Text('Home'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             title: Text('Profile'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pin_drop),
+            icon: Icon(Icons.rss_feed),
             title: Text('Live Events'),
           ),
         ],
@@ -94,6 +91,39 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.purple[400],
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
+        backgroundColor: Colors.grey,
+        iconSize: 24,
+        selectedFontSize: 12,
+      ),
+    );
+  }
+}
+
+class HomeParent extends StatelessWidget {
+  const HomeParent({
+    Key key,
+    @required this.optionStyle,
+  }) : super(key: key);
+
+  final TextStyle optionStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      child: Row(
+        
+        children: <Widget>[
+          Text(
+            'Home',
+          ),
+          Text(
+            'Home',
+          ),
+          Text(
+            'Home',
+          ),
+        ],
       ),
     );
   }
