@@ -1,3 +1,5 @@
+import 'package:eventapp/homeWidget/HomeParentWidget.dart';
+import 'package:eventapp/homeWidget/ThisWeekEvents.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -30,15 +32,12 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<Widget> _widgetOptions = <Widget>[
-    new HomeParent(optionStyle: optionStyle),
-    Text(
-      'Business',
-      style: optionStyle,
-    ),
+    new ThisWeekEvents(optionStyle: optionStyle),
     Text(
       'Settings',
       style: optionStyle,
     ),
+    new HomeParent(optionStyle: optionStyle),
     Text(
       'Profile',
       style: optionStyle,
@@ -94,36 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.grey,
         iconSize: 24,
         selectedFontSize: 12,
-      ),
-    );
-  }
-}
-
-class HomeParent extends StatelessWidget {
-  const HomeParent({
-    Key key,
-    @required this.optionStyle,
-  }) : super(key: key);
-
-  final TextStyle optionStyle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-      child: Row(
-        
-        children: <Widget>[
-          Text(
-            'Home',
-          ),
-          Text(
-            'Home',
-          ),
-          Text(
-            'Home',
-          ),
-        ],
       ),
     );
   }
